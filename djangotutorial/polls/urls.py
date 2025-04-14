@@ -2,11 +2,13 @@ from django.urls import path
 
 from . import views
 
+
+app_name = "polls" #esto permite identificar la url a la aplicacion en particular
 urlpatterns = [
 	#ex: /polls/
 	path("", views.index, name="index"),
 	#ex: /polls/5/
-	path("specifics/<int:question_id>/", views.detail, name="detail"),
+	path("<int:question_id>/", views.detail, name="detail"),
 	#ex: /polls/results/
 	path("<int:question_id>/results/", views.results, name="results"),
 	#ex: /polls/5/vote/
